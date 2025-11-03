@@ -1,6 +1,8 @@
 # EcoGenieBot 🌱🤖
 
-An intent-based AI chatbot focused on environmental awareness and sustainability, developed as part of AICTE internship project in December 2023.
+EcoGenieBot: AI-Powered Green Tech Chatbot designed to promote sustainability and answer user queries about green technology and eco-friendly practices. Built with Python and powered by NLP, it goes beyond green skills to handle general queries like weather updates, time, and casual interactions.
+
+Developed as part of AICTE internship project in December 2023.
 
 ## Overview
 
@@ -13,6 +15,8 @@ EcoGenieBot is an intelligent conversational AI designed to provide information 
 - Natural Language Processing using NLTK
 - Web interface using Streamlit
 - Machine learning model for intent classification
+- Weather updates and time queries
+- General conversation capabilities
 
 ## Project Structure
 
@@ -31,8 +35,8 @@ EcoGenieBot is an intelligent conversational AI designed to provide information 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/ecogeniebot.git
-cd ecogeniebot
+git clone https://github.com/LuckyNawale/EcoGenieBot.git
+cd EcoGenieBot
 ```
 
 2. Install required dependencies:
@@ -86,5 +90,5 @@ This project is open source and available under the MIT License.
 
 ## Author
 
-Lucky Manoj Nawale
+Lucky Manoj Nawale  
 AICTE Internship Project - December 2023
