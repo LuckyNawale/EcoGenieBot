@@ -39,7 +39,6 @@ def chatbot_response(user_input):
 st.title("EcoGenieBot")
 st.write("Ask me anything about green technology, weather, or time!")
 
-
 user_input = st.text_input("You: ", "")
 if user_input:
     response = chatbot_response(user_input)

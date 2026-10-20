@@ -1,72 +1,27 @@
-# GitHub Setup Instructions for EcoGenieBot
+# EcoGenieBot Deployment Notes
 
-## Step 1: Create GitHub Repository
+The repository already exists at [github.com/LuckyNawale/EcoGenieBot](https://github.com/LuckyNawale/EcoGenieBot). Do not create a duplicate repository for deployment.
 
-1. Go to [GitHub.com](https://github.com) and sign in
-2. Click the "+" icon in the top right corner
-3. Select "New repository"
-4. Repository name: `ecogeniebot`
-5. Description: `Intent-based AI chatbot for environmental awareness and sustainability`
-6. Make it Public (or Private if you prefer)
-7. **DO NOT** initialize with README, .gitignore, or license (we already have these)
-8. Click "Create repository"
+## Deploy on Streamlit Community Cloud
 
-## Step 2: Connect Local Repository to GitHub
+1. Push the current project files to the branch you intend to deploy. The app requires `app.py`, `chatbot.py`, `intents.json`, and `requirements.txt` at the repository root.
+2. Open the [Streamlit Community Cloud deploy page](https://share.streamlit.io/deploy?repository=LuckyNawale%2FEcoGenieBot&branch=main&mainModule=app.py) and sign in/connect your GitHub account.
+3. Choose repository `LuckyNawale/EcoGenieBot`, branch `main`, and main file `app.py`.
+4. Deploy, wait for startup, then test known and unknown messages in the hosted app.
+5. Add the URL assigned by Streamlit to the Demo section in `README.md` only after confirming the app works.
 
-After creating the repository on GitHub, run these commands in your terminal:
+The current version reads `intents.json` directly and fits its vectorizer at startup. It does not require model pickle files, a local data path, NLTK downloads, or environment secrets.
 
-```bash
-# Navigate to your project directory
-cd "C:\Users\lucky\project\AICTE"
+## Local Verification
 
-# Add GitHub repository as remote origin
-git remote add origin https://github.com/YOUR_USERNAME/ecogeniebot.git
+From the repository root on Windows:
 
-# Push your code to GitHub
-git branch -M main
-git push -u origin main
+```powershell
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python -m unittest discover -s tests -v
+streamlit run app.py
 ```
 
-Replace `YOUR_USERNAME` with your actual GitHub username.
-
-## Step 3: Verify Upload
-
-1. Refresh your GitHub repository page
-2. You should see all your files uploaded
-3. The README.md will be displayed on the main page
-
-## Project Structure (Now Organized)
-
-```
-ecogeniebot/
-├── .gitignore              # Git ignore file
-├── README.md               # Project documentation
-├── requirements.txt        # Python dependencies
-├── app.py                  # Main Flask application
-├── streamlit.py           # Streamlit web interface
-├── intents.json           # Training data
-├── notebooks/             # Jupyter notebooks
-│   ├── chatbot_week_1.ipynb
-│   ├── chatbot_week_2.ipynb
-│   ├── chatbot_week_3.ipynb
-│   └── EcoGenie_chatbot.ipynb
-├── PROJECT/               # Original project files
-└── docs/                  # Documentation (empty for now)
-```
-
-## Next Steps
-
-1. Update your GitHub profile README to showcase this project
-2. Add topics/tags to your repository (AI, chatbot, NLP, environment)
-3. Consider adding a license file
-4. Create issues for future improvements
-5. Add screenshots of your chatbot in action
-
-## Troubleshooting
-
-If you get authentication errors:
-- Use GitHub CLI: `gh auth login`
-- Or use Personal Access Token instead of password
-- Or use SSH keys for authentication
-
-Your EcoGenieBot is now ready for GitHub! 🚀🌱
+For the complete project architecture, V1/V2 comparison, rebuild notes, interview guide, and troubleshooting, see [INTERVIEW_GUIDE.md](INTERVIEW_GUIDE.md).
